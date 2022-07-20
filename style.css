@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+}
+html::-webkit-scrollbar
+{
+    width: 0.6vw;
+}
+html::-webkit-scrollbar-thumb
+{
+    background-color:#0cfaf3c7;
+}
+html::-webkit-scrollbar-track
+{
+    background-color: #5d5d5d;
+}
+html
+{
+    scrollbar-width: thin;
+    /* scrollbar-color: gray;                *********not working in firefox also*********
+    scrollbar-highlight-color: blue;
+    scrollbar-track-color: chartreuse; */
+}
+a
+{
+    color: aqua;
+}
+a:active
+{
+    color: aqua;
+}
+body
+{
+    /* width: 100vw; */
+    height: 100vh;
+    overflow-x: hidden;    /*  to prevent scroll bar in animation */
+    /* background-image: url(./assets/profileIMG.png); */
+}
+
+
+/* *****************************   header start   ***************************** */
+
+header
+{
+    user-select: none;
+    height: 70px;
+    width: 100%;
+    background-color: rgba(55,55,55,20);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* *****************************  nav start  ***************************** */
+nav 
+{
+    width: 40%;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+nav ul
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+/* *****************************  nav end  ***************************** */
+/* *****************************  nav profile start ***************************** */
+.navProfile
+{
+    display: flex;
+    color: aqua;
+    align-items: center;
+    padding-right: 22px;
+}
+#profileLogo
+{
+    transition: all .21s ease-in;
+    height: 70px;
+    border-radius: 36px;
+    padding: 16px;
+}
+#profileLogo:hover
+{
+    height: 90px;
+}
+.navProfile .username
+{
+    cursor: pointer;
+    /* background: #7ecccc; */
+    background: unset;
+    padding: 11px;
+    transition: all 1s ease;
+    border-radius: 4px;
+    /* transition-delay: 100ms; */
+}
+.navProfile .username:hover
+{
+    background: #776c6cb8;
+    color: chartreuse;
+    /* text-decoration: underline; */
+}
+.navProfile .username:active
+{
+    color: red;
+}
+
+/* *****************************  nav profile end  ***************************** */
+/* *****************************  username Menu start  ***************************** */
+.usernameMenu
+{
+    display: none;
+    z-index: 5;
+    background-color: #7ecccc;
+    color: black;
+    padding: 11px 0px;
+    position: absolute;
+    top: 77px;
+    border-radius: 6px;
+    right: -120px;
+    transition: all .2s ease-in-out;
+    /* animation: usernameMenu .5s ease 0s ; */
+    /* animation-direction: reverse; */
+    opacity: 0;
+}
+.usernameMenu ul li 
+{
+    padding: 10px 26px;
+    position: relative;
+    right: -20px;
+    opacity: 0;
+    /* animation: usernameLi 1s ease-in-out .1s 21 normal none; */
+
+    /* transition: right .5s ease ; */
+    /* transition-delay: .3s; */
+    /* transition: opacity .5s ease ; */                /* transition is not working on opacity */
+}
+.usernameMenu ul li:hover
+{
+    background: #c5d9d2bf;    
+    cursor: pointer;
+}
+@keyframes usernameMenu {
+    0%{
+        opacity: 0;
+        right: -120px;
+    }
+    75%{
+        opacity: .5;
+    }
+    100%{
+        opacity: 1;
+        right: 8px;
+    }
+}
+@keyframes usernameLi {
+    0%{
+        opacity: 0;
+        right: -20px;
+    }
+    25%{
+        opacity: .25;
+    }
+    50%{
+        opacity: .25;
+        right: -13px;
+    }
+    75%{
+        opacity: .5;
+    }
+    100%{
+        right: 0px;
+        opacity: 1;
+    }
+}
+
+/* *****************************  username Menu end  ***************************** */
+/* *****************************  header end  ***************************** */
+
+
+
+
+/* *****************************  main start  ***************************** */
+.mainDisplay
+{
+    display: flex;
+    flex-direction: column;
+}
+.mainDisplayBg
+{
+    height: 759px;
+    background-color: rgb(54, 45, 32);
+    display: flex;
+    overflow-y: hidden;
+    flex-direction: column;
+}
+.mainDisplayContent
+{
+    position: absolute;
+    /* display: flex; */
+    color: aliceblue;
+    width: 100%;
+    height: 759px;
+    background: linear-gradient(88deg,#000000c4 19%, rgb(0 22 22 / 40%) 35%, transparent);
+    /* background: repeating-linear-gradient(45deg, black, transparent 304px); */
+    /* backdrop-filter: blur(0px);
+    animation-name: linearLines;
+    animation-fill-mode: both;
+    animation-delay: 0ms;
+    animation-timing-function: ease;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: normal; */
+    /* animation-play-state: running; */
+}
+.mainDisplayBg img 
+{
+    width: 100%;
+    height: 759px;
+    position: relative;
+    bottom: 0px;
+    transition: all 1.5s ease;
+    /* top: -755px; */
+    /* animation: photoSlider 1s ease-out 5s infinite normal none ; */
+}
+@keyframes photoSlider {
+    0%{
+        top: 0px;
+        opacity: 1;
+    }
+    25%{
+        opacity: .4;
+    }
+    75%{
+        opacity: .6;
+        top: 0px;
+    }
+    100%{
+        opacity: 0;
+        top: -775px;
+    }
+}
+@keyframes linearLines {
+    from{
+        background: repeating-linear-gradient(45deg, black, transparent 304px);
+        
+    }
+    to{
+        background: repeating-linear-gradient(45deg, black, transparent 500px);
+
+    }
+}
+.mainInfo img
+{
+    border-radius: 165px;
+    height: 100px;
+}
+.mainInfo
+{
+    width: min-content;
+    height: 240px;
+    border-radius: 14px;
+    padding: 50px;
+    margin: 26px;
+    background: #4a4d4d8f;
+    /* transition: all 1s ease; */
+    /* animation-name: mainInfoBg; */
+    /* animation-timing-function: ease; */
+    /* animation-duration: 5s; */
+    /* animation-fill-mode: forwards; */
+    /* animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running; */
+    transition: all .5s ease;
+    /* animation: mainInfoBg 6s ease-in-out 0s infinite normal none;    */
+}
+@keyframes mainInfoBg {
+    from{
+        background: linear-gradient(45deg, #4de80a31, #4ee80a, #4de80a31, #4de80a31 );
+        transition: all 2s ease;
+    }
+    /* 25%{
+        background: linear-gradient(45deg, #4de80a31,  #4de80a31,#4ee80a, #4de80a31 );
+        transition: all 2s ease;
+    }
+    50%{
+        background: linear-gradient(45deg, #4de80a31, #4de80a31, #4de80a31, #4ee80a );
+        transition: all 2s ease;
+    } */
+    to{
+        background: linear-gradient(45deg, #4ee80a, #4de80a31, #4de80a31, #4de80a31 );
+        transition: all 2s ease;
+    }
+}
+.nameSlide h3
+{
+    margin: 12px 0 2px 0;
+}
+.nameSlide h6
+{
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 100;
+    transform: translateY(10px);
+    /* display: none; */
+    opacity: 0;
+    transition: all .5s ease;
+}
+.mainInfo:hover .nameSlide h6
+{
+    /* transition: all 1s ease; */
+    transform: translateY(0px);
+    /* display: unset; */
+    opacity: 1;
+}
+.mainInfo:hover 
+{
+    height: 259px;
+}
+.time
+{
+    color: #00ffff4a;
+    background: #5a4d4d;
+    display: flex;
+    right: 0px;
+    border-radius: 14px;
+    padding: 50px;
+    margin: 26px;
+    width: max-content;
+    position: absolute;
+    top: 0;
+}
+.hours
+{
+    box-shadow: 0px 1px 5px black;
+    background: #0000002e;
+    padding: 8px 18px;
+    border-radius: 14px;
+    margin: 0 12px 0 0;
+    font-size: 64px;
+    font-weight: 900;
+}
+.minutes
+{
+    box-shadow: 0px 1px 5px black;
+    background: #0000002e;
+    padding: 8px 18px;
+    border-radius: 14px;
+    margin: 0 12px 0 0;
+    font-size: 64px;
+    font-weight: 900;
+}
+.hoursType
+{
+    box-shadow: 0px 1px 5px black;
+    background: #0000002e;
+    padding: 8px 18px;
+    border-radius: 14px;
+    display: flex; 
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.time div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* ********************************** calendarSection start ******************************* */
+.calendarSection
+{
+    height: 90vh;
+    background-color: rgb(26 65 59);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dateDay
+{
+    border: 1px solid;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.726);
+    padding: 50px;
+    margin: 25px;
+    border-radius: 15px;
+    font-size: 51px;
+    color: #f7f7f745;
+    text-transform: capitalize;
+    box-shadow: 0px 0px 26px #000000;
+    transition: all 1s ease;
+    border: 1px solid;
+}
+.dateDay:hover
+{
+    box-shadow: 0px 0px 26px #2be3df;
+
+}
+.calendar
+{
+    background-color: blanchedalmond;
+    width: 378px;
+    height: fit-content;
+    padding: 14px;
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.calDates
+{
+    display: flex;
+    margin: 0 3px;
+    /* background: black; */
+    /* padding: 6px; */
+    /* color: aliceblue; */
+    width: 44px;
+    border-radius: 33px;
+    font-size: medium;
+    height: 44px;
+    justify-content: center;
+    /* justify-content: end; */
+    align-items: center;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.calDays
+{
+    display: flex;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 3px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    font-size: larger;
+    justify-content: center;
+    align-items: center;
+}
+.prevCalDates,
+.nextCalDates
+{
+    display: flex;
+    margin: 0 3px;
+    /* background: black; */
+    /* padding: 6px; */
+    /* color: aliceblue; */
+    width: 44px;
+    border-radius: 33px;
+    font-size: medium;
+    height: 44px;
+    justify-content: center;
+    /* justify-content: end; */
+    align-items: center;
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 50%;
+}

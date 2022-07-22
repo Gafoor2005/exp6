@@ -76,6 +76,7 @@ nav ul
     color: aqua;
     align-items: center;
     padding-right: 22px;
+    z-index: 51;
 }
 #profileLogo
 {
@@ -192,7 +193,7 @@ nav ul
 }
 .mainDisplayBg
 {
-    height: 759px;
+    /* height: auto; */
     background-color: rgb(54, 45, 32);
     display: flex;
     overflow-y: hidden;
@@ -220,7 +221,7 @@ nav ul
 .mainDisplayBg img 
 {
     width: 100%;
-    height: 759px;
+    height: fit-content;
     position: relative;
     bottom: 0px;
     transition: all 1.5s ease;
@@ -375,7 +376,7 @@ nav ul
 /* ********************************** calendarSection start ******************************* */
 .calendarSection
 {
-    height: 90vh;
+    height: 500px;
     background-color: rgb(26 65 59);
     display: flex;
     align-items: center;
@@ -403,7 +404,8 @@ nav ul
 }
 .calendar
 {
-    background-color: blanchedalmond;
+    background-color: rgb(0, 0, 0);
+    color: aqua;
     width: 378px;
     height: fit-content;
     padding: 14px;
@@ -417,9 +419,9 @@ nav ul
     margin: 0 3px;
     /* background: black; */
     /* padding: 6px; */
-    /* color: aliceblue; */
+    color: #32ca37;
     width: 44px;
-    border-radius: 33px;
+    border-radius: 15px;
     font-size: medium;
     height: 44px;
     justify-content: center;
@@ -459,4 +461,178 @@ nav ul
     font-weight: 300;
     letter-spacing: 2px;
     opacity: 50%;
+}
+.presentDate
+{
+    background-color: #dbe72185;
+    color: cornsilk;
+}
+
+/* ***************************calendar end****************************** */
+.burger
+{
+    display: none;
+}
+/* ******************************responsive start****************************** */
+@media (max-width:903px ) {
+    .calendarSection{
+        height: fit-content;
+        background-color: rgb(26 65 59);
+        display: flex;
+        align-items: center;
+        padding: 7px;
+        /* justify-content: space-between; */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .dateDay{
+        border: 1px solid;
+        height: fit-content;
+        background-color: rgba(0, 0, 0, 0.726);
+        padding: 30px;
+        margin: 15px;
+        border-radius: 15px;
+        font-size: 51px;
+        color: #f7f7f745;
+        text-transform: capitalize;
+        box-shadow: 0px 0px 26px #000000;
+        transition: all 1s ease;
+        border: 1px solid;
+    }
+    .calendar{
+        background-color: rgb(0, 0, 0);
+        color: aqua;
+        width: 378px;
+        height: fit-content;
+        padding: 14px;
+        margin: 15px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .mainDisplayContent{
+        position: unset;
+        
+        color: aliceblue;
+        width: 100%;
+        height: fit-content;
+        background: linear-gradient(88deg,#000000c4 19%, rgb(0 0 0 / 81%) 35%, #000000);
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .mainDisplayBg{
+        /* height: auto; */
+        background-color: rgb(54, 45, 32);
+        display: flex;
+        overflow-y: hidden;
+        flex-direction: column;
+    }
+    .time{
+        color: #00ffff4a;
+        background: #5a4d4d;
+        display: flex;
+        right: 0px;
+        border-radius: 14px;
+        padding: 30px;
+        margin: 15px;
+        width: max-content;
+        position: unset;
+        top: 0;
+    }
+    .hours,.minutes{
+        padding: 20px;
+        font-size: 40px;
+    }
+    .burger{
+        background: rgba(55,55,55,20);
+        width: 300px;
+        z-index: 50;
+        height: 100%;
+        display: flex;
+    }
+    nav{
+        width: auto;
+        text-transform: capitalize;
+        font-size: 18px;
+        margin: 9px;
+        border-radius: 0 0 26px 26px;
+        position: absolute;
+        padding: 20px 0;
+        top: -197px;
+        background: cornflowerblue;
+        z-index: 36;
+        transition: top .3s ease-in;
+    }
+    .menuSlideDown nav{
+        top: 50px;
+    }
+    nav ul{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+    nav ul li{
+        margin: 10px 49px;
+    }
+    .menuButton{
+        height: fit-content;
+        width: fit-content;
+        /* background: azure; */
+        margin: auto auto auto 20px;
+    }
+    .bi-list{
+        color: whitesmoke;
+        height: 44px;
+    }
+    .bi-x{
+        
+        color: whitesmoke;
+        height: 44px;
+        display: none;
+    }
+    .menuOpen .bi-list{
+        display: none;
+    }
+    .menuOpen .bi-x{
+        display: unset;
+    }
+    
+
+    @media (max-width: 450px) {
+        .calendarSection{
+            padding: 0px;
+        }
+        .calendar{
+            width: 308px;
+            margin: 0px;
+        }
+        .calDays,.calDates,.prevCalDates,.nextCalDates{
+            width: 34px;
+            height: 34px;
+        }
+        .dateDay{
+            margin: 32px 16px;
+            padding: 22px;
+            font-size: 35px;
+        }
+        .hours,.minutes{
+            font-size: 27px;
+        }
+        .hoursType{
+            font-size: 13px;
+            font-weight: 300;
+        }
+        .time{
+            padding: 13px;
+        }
+        .navProfile{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .burger{
+            width: 169px;
+        }
+    }
 }

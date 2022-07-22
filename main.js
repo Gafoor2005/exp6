@@ -111,6 +111,26 @@ let img5 = document.getElementById('img5')
 let img6 = document.getElementById('img6')
 
 
+let imgHeight = img1.offsetHeight;
+let imgWidth = img1.offsetWidth;
+console.log(imgHeight);
+
+
+let mainDisplayBg = document.getElementsByClassName('mainDisplayBg')[0];
+let mainDisplayContent = document.getElementsByClassName('mainDisplayContent')[0];
+
+mainDisplayBg.style.height = imgHeight+'px';
+if (imgWidth > 903) {
+    mainDisplayContent.style.height = imgHeight+'px';
+    
+}
+
+// ------setting same height for all images :
+// img2.style.height =  imgHeight+'px';
+// img3.style.height =  imgHeight+'px';
+// img4.style.height =  imgHeight+'px';
+// img5.style.height =  imgHeight+'px';
+// img6.style.height =  imgHeight+'px';
 
 
 
@@ -137,7 +157,7 @@ let f = 1
 setInterval(() => {
    
     // alert('hhhhhhhh');
-    let slide = 759;
+    let slide = imgHeight;             // let slide = 759;
     // let ing1 = img[0].style.bottom ;
     img[0].style.bottom = f*slide+'px';
     img[1].style.bottom = f*slide+'px';
@@ -587,7 +607,7 @@ while (dateStart <= noOfDays) {
 
 let nextDate = 1;
 let calFix = calendar.childElementCount/7;
-console.log(calFix - Math.trunc(calFix));
+// console.log(calFix - Math.trunc(calFix));
 while ( calFix - Math.trunc(calFix) != 0 ) {
     let nextDays = document.createElement('p');
     nextDays.className = 'nextCalDates';
@@ -598,6 +618,12 @@ while ( calFix - Math.trunc(calFix) != 0 ) {
 }
 
 
+let presentDate = document.getElementById('dateNo'+date.getDate());
+// console.log(presentDate);
+presentDate.className = 'calDates' + ' ' + 'presentDate';
+
+
+// console.log(date.getDate());
 // console.log(yearConditon1);
 // console.log(yearConditon2);
 // console.log(yearConditon3);
@@ -606,3 +632,28 @@ while ( calFix - Math.trunc(calFix) != 0 ) {
 // console.log(date.getMonth());
 // console.log(date.getFullYear());
 // console.log(date.getDay());
+
+
+
+
+
+
+
+//-------------------------dom class change-------------------------------//
+let biList = document.querySelector('.bi-list');
+let bix = document.querySelector('.bi-x');
+let header = document.querySelector('header');
+let menuButton = document.querySelector('.menuButton');
+
+
+function openMenu(){
+    header.classList.add('menuSlideDown');
+    menuButton.classList.add('menuOpen');
+}
+function closeMenu(){
+    header.classList.remove('menuSlideDown');
+    menuButton.classList.remove('menuOpen');
+}
+
+// event listener 
+// biList.addEventListener('click',openMenu());             not working !!........
